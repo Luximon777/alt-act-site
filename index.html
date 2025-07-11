@@ -1,34 +1,498 @@
-ok<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alt&Act | Insertion professionnelle sans barrières</title>
-    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+            background: #ffffff;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 1px solid #f1f5f9;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: #1f2937;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #64748b;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #1e3a8a;
+        }
+
+        .nav-cta {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            color: white !important;
+            padding: 0.75rem 1.5rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(30, 58, 138, 0.3);
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(30, 58, 138, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 10rem 0 8rem;
+            background: linear-gradient(135deg, rgba(30, 58, 138, 0.9) 0%, rgba(59, 130, 246, 0.9) 100%), 
+                        url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: rotate(15deg);
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { opacity: 0; }
+            50% { opacity: 1; }
+        }
+
+        .hero-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            letter-spacing: -0.025em;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 3rem;
+            line-height: 1.6;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            text-align: center;
+            background: white;
+            padding: 2rem 1.5rem;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            border: 1px solid #f1f5f9;
+            min-width: 140px;
+            transition: all 0.3s ease;
+        }
+
+        .stat:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #1e3a8a;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: #64748b;
+            font-weight: 500;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #f59e0b 0%, #f97316 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(245, 158, 11, 0.5);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            padding: 1rem 2rem;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
+        }
+
+        /* Section commune */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-intro {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            color: #0369a1;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            border: 1px solid #bae6fd;
+        }
+
+        .section-intro h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #0f172a;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .section-intro p {
+            font-size: 1.1rem;
+            color: #475569;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Three Pillars Section */
+        .pillars {
+            padding: 8rem 0;
+            background: white;
+        }
+
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .pillar-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 24px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            border: 1px solid #f1f5f9;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pillar-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(135deg, #4f46e5 0%, #6366f1 100%);
+        }
+
+        .pillar-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .pillar-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #4f46e5 0%, #6366f1 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            font-size: 2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(79, 70, 229, 0.3);
+        }
+
+        .pillar-card:hover .pillar-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .pillar-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 1rem;
+        }
+
+        .pillar-card p {
+            color: #64748b;
+            line-height: 1.6;
+            font-size: 1rem;
+        }
+
+        /* About Section */
+        .about {
+            padding: 8rem 0;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+        }
+
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            gap: 6rem;
+        }
+
+        .about-section h3 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #0f172a;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .about-section > p {
+            font-size: 1.1rem;
+            color: #475569;
+            line-height: 1.7;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+        }
+
+        /* Footer simple */
+        footer {
+            background: #0f172a;
+            color: #94a3b8;
+            padding: 4rem 0 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .footer-content h3 {
+            color: white;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .footer-content p {
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #334155;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { 
+                font-size: 2.5rem; 
+            }
+            .hero-stats { 
+                flex-direction: column; 
+                gap: 1.5rem;
+                align-items: center;
+            }
+            .hero-cta { 
+                flex-direction: column; 
+                align-items: center;
+                max-width: 300px;
+                margin: 0 auto;
+            }
+            .pillars-grid { 
+                grid-template-columns: 1fr; 
+            }
+            .nav-links { 
+                display: none; 
+            }
+            .container { 
+                padding: 0 1rem; 
+            }
+            .hero {
+                background-attachment: scroll;
+            }
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Utility classes */
+        .text-gradient {
+            background: linear-gradient(135deg, #4f46e5 0%, #6366f1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Highlight color */
+        .highlight {
+            color: #f59e0b;
+        }
+    </style>
 </head>
 <body>
-    <!-- NAVIGATION -->
     <nav>
         <div class="nav-container">
             <a href="#" class="logo">Alt&Act</a>
             <ul class="nav-links">
                 <li><a href="#mission">Notre approche</a></li>
                 <li><a href="#apropos">À propos</a></li>
-                <li><a href="#impact">Impact</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#presence">Présence</a></li>
+                <li><a href="#contact">Contact</a></li>
                 <li><a href="#contact" class="nav-cta">Nous contacter</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- HERO SECTION -->
     <section class="hero">
         <div class="hero-container">
             <div class="hero-tag">
                 <span>🏢</span> ONG Altérité & Action
             </div>
-            <h1>L'insertion professionnelle <span style="color: #f59e0b;">sans barrières</span></h1>
+            <h1>L'insertion professionnelle <span class="highlight">sans barrières</span></h1>
             <p class="hero-subtitle">Nous développons des dispositifs d'accompagnement holistique qui respectent la valeur intrinsèque de chaque individu et intègrent ses aspirations profondes, pour transformer l'approche traditionnelle de l'insertion professionnelle.</p>
             
             <div class="hero-stats">
@@ -53,7 +517,6 @@ ok<!DOCTYPE html>
         </div>
     </section>
 
-    <!-- MISSION / PILLARS SECTION -->
     <section id="mission" class="pillars">
         <div class="container">
             <div class="section-intro fade-in">
@@ -63,17 +526,20 @@ ok<!DOCTYPE html>
                 <h2>Notre approche transformative</h2>
                 <p>Trois piliers interdépendants pour révolutionner l'insertion professionnelle et construire une société plus équitable.</p>
             </div>
+
             <div class="pillars-grid">
                 <div class="pillar-card fade-in">
                     <div class="pillar-icon">💡</div>
                     <h3>Innovation Sociale</h3>
                     <p>Nous concevons et expérimentons des dispositifs d'accompagnement "sans barrières" qui intègrent la quête de sens et les aspirations profondes des individus, dépassant les approches traditionnelles purement techniques.</p>
                 </div>
+
                 <div class="pillar-card fade-in">
                     <div class="pillar-icon">🤝</div>
                     <h3>Accompagnement Holistique</h3>
                     <p>Notre méthode privilégie le respect de la personne et substitue la coopération à la compétition, offrant un soutien psychologique, juridique et professionnel adapté à chaque parcours unique.</p>
                 </div>
+
                 <div class="pillar-card fade-in">
                     <div class="pillar-icon">🌍</div>
                     <h3>Impact Systémique</h3>
@@ -83,7 +549,6 @@ ok<!DOCTYPE html>
         </div>
     </section>
 
-    <!-- ABOUT SECTION -->
     <section id="apropos" class="about">
         <div class="container">
             <div class="section-intro fade-in">
@@ -93,244 +558,53 @@ ok<!DOCTYPE html>
                 <h2>À propos d'Alt&Act</h2>
                 <p>Une association fondée sur des principes humanistes universels pour transformer l'insertion professionnelle</p>
             </div>
+
             <div class="about-content">
                 <div class="about-section fade-in">
                     <h3>🌟 Notre inspiration éthique</h3>
                     <p>Alt&Act s'inspire des principes fondamentaux de <strong>dignité humaine</strong>, d'<strong>unité dans la diversité</strong> et de <strong>justice sociale</strong>. Nous reconnaissons que les défis contemporains nécessitent une approche qui transcende les simples conditions matérielles pour intégrer <strong>la quête de sens, les valeurs universelles communes et les aspirations profondes</strong> de chaque individu.</p>
+                    
                     <p><strong>Nous condamnons toutes formes de discriminations</strong> et œuvrons pour un monde professionnel où chaque personne, quelle que soit son origine, sa condition sociale, son âge, son genre ou ses croyances, peut s'épanouir dans la dignité et le respect mutuel.</p>
-                    <div class="values-grid">
-                        <div class="value-card">
-                            <div class="value-icon">🤝</div>
-                            <h4>Coopération</h4>
-                            <p>Nous substituons la coopération à la compétition destructrice dans toutes nos méthodes</p>
-                        </div>
-                        <div class="value-card">
-                            <div class="value-icon">⚖️</div>
-                            <h4>Équité & Justice</h4>
-                            <p>Promotion de l'équité plutôt que l'individualisme matérialiste</p>
-                        </div>
-                        <div class="value-card">
-                            <div class="value-icon">🎯</div>
-                            <h4>Intégrité</h4>
-                            <p>Éthique personnelle et intégrité dans tous nos accompagnements</p>
-                        </div>
-                        <div class="value-card">
-                            <div class="value-icon">🌍</div>
-                            <h4>Service à l'humanité</h4>
-                            <p>Motivation de service désintéressé au-delà des intérêts matériels</p>
-                        </div>
-                    </div>
                 </div>
+
                 <div class="about-section fade-in">
                     <h3>🔬 Notre méthodologie de recherche-action</h3>
-                    <p>Alt&Act développe une approche structurée d'innovation sociale selon une méthodologie rigoureuse en quatre phases :</p>
-                    <div class="methodology-phases">
-                        <div class="phase">
-                            <div class="phase-header">
-                                <div class="phase-number">1</div>
-                                <h4>Observation & Analyse</h4>
-                            </div>
-                            <ul>
-                                <li>Diagnostic des besoins et lacunes dans les dispositifs existants</li>
-                                <li>Analyse des freins à l'insertion dans une approche "sans barrières"</li>
-                                <li>Co-construction avec les parties prenantes</li>
-                            </ul>
-                        </div>
-                        <div class="phase">
-                            <div class="phase-header">
-                                <div class="phase-number">2</div>
-                                <h4>Conception & Expérimentation</h4>
-                            </div>
-                            <ul>
-                                <li>Développement de dispositifs respectueux de la personne humaine</li>
-                                <li>Expérimentation avec protocole d'évaluation rigoureux</li>
-                                <li>Intégration des principes d'unité, de sens et de service</li>
-                            </ul>
-                        </div>
-                        <div class="phase">
-                            <div class="phase-header">
-                                <div class="phase-number">3</div>
-                                <h4>Évaluation & Ajustement</h4>
-                            </div>
-                            <ul>
-                                <li>Évaluation d'impact social et éthique des dispositifs</li>
-                                <li>Ajustement selon les retours d'expérience</li>
-                                <li>Préparation du changement d'échelle</li>
-                            </ul>
-                        </div>
-                        <div class="phase">
-                            <div class="phase-header">
-                                <div class="phase-number">4</div>
-                                <h4>Diffusion & Essaimage</h4>
-                            </div>
-                            <ul>
-                                <li>Transfert de compétences et essaimage territorial</li>
-                                <li>Formation des acteurs relais</li>
-                                <li>Documentation et partage des bonnes pratiques</li>
-                            </ul>
-                        </div>
-                    </div>
+                    <p>Alt&Act développe une approche structurée d'innovation sociale selon une méthodologie rigoureuse en quatre phases : observation et analyse, conception et expérimentation, évaluation et ajustement, puis diffusion et essaimage.</p>
                 </div>
+
                 <div class="about-section fade-in">
-                    <h3>🏛️ Notre gouvernance</h3>
-                    <div class="governance-grid">
-                        <div class="governance-item">
-                            <h4>Assemblée Générale</h4>
-                            <p>Réunit annuellement tous les membres pour approuver les comptes, le rapport d'activité et les orientations stratégiques.</p>
-                        </div>
-                        <div class="governance-item">
-                            <h4>Comité Directeur</h4>
-                            <p>3 à 9 membres élus pour 3 ans, responsables de la gestion opérationnelle et de la mise en œuvre des orientations.</p>
-                        </div>
-                        <div class="governance-item">
-                            <h4>Comité Scientifique & Éthique</h4>
-                            <p>Experts, professionnels et représentants qui évaluent la qualité scientifique et veillent au respect des valeurs éthiques.</p>
-                        </div>
-                        <div class="governance-item">
-                            <h4>Évaluation d'Impact</h4>
-                            <p>Mesure rigoureuse de l'impact social, production de rapports annuels et adaptation des méthodes selon les résultats.</p>
-                        </div>
-                    </div>
+                    <h3>🏢 Notre présence</h3>
+                    <p><strong>Siège Social :</strong> 23 rue de la Croix, 67100 Eckbolsheim, Strasbourg, Alsace</p>
+                    <p><strong>Statut :</strong> Association de droit local alsacien-mosellan (loi du 19 avril 1908)</p>
+                    <p><strong>Zones d'action :</strong> France • Union Européenne • 15 pays partenaires</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- IMPACT SECTION -->
-    <section id="impact" class="impact">
+    <section id="contact" class="hero" style="padding: 6rem 0; background: linear-gradient(135deg, #4f46e5 0%, #6366f1 100%);">
         <div class="container">
-            <div class="impact-content">
-                <div class="impact-text fade-in">
-                    <h2>Mesurer l'impact, transformer les vies</h2>
-                    <p>Notre engagement se mesure par la transformation profonde que nous apportons dans la vie des personnes accompagnées. Au-delà des statistiques, nous évaluons l'amélioration de la qualité de vie, l'accès aux opportunités et le renforcement de l'autonomie.</p>
-                    <p>Chaque dispositif que nous développons est rigoureusement évalué selon nos critères d'éthique, d'efficacité et d'impact social durable.</p>
-                </div>
-                <div class="impact-metrics fade-in">
-                    <div class="metric">
-                        <div class="metric-number">92%</div>
-                        <div class="metric-label">Amélioration qualité de vie</div>
-                    </div>
-                    <div class="metric">
-                        <div class="metric-number">78%</div>
-                        <div class="metric-label">Accès première fois à l'emploi</div>
-                    </div>
-                    <div class="metric">
-                        <div class="metric-number">100+</div>
-                        <div class="metric-label">Entreprises labellisées</div>
-                    </div>
-                    <div class="metric">
-                        <div class="metric-number">25</div>
-                        <div class="metric-label">Dispositifs innovants créés</div>
-                    </div>
+            <div style="text-align: center;">
+                <h2 style="font-size: 2.5rem; font-weight: 800; color: white; margin-bottom: 1.5rem;">Rejoignez notre mission</h2>
+                <p style="font-size: 1.1rem; color: rgba(255, 255, 255, 0.9); margin-bottom: 3rem; max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.6;">Ensemble, construisons un monde professionnel plus humain, où chaque personne peut développer son potentiel dans la dignité, le respect mutuel et l'alignement avec ses valeurs profondes.</p>
+                
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="mailto:contact@altact.org" style="background: white; color: #4f46e5; padding: 1rem 2rem; border-radius: 12px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);">Nous contacter</a>
+                    <a href="#mission" style="background: transparent; color: white; padding: 1rem 2rem; border: 2px solid rgba(255, 255, 255, 0.3); border-radius: 12px; text-decoration: none; font-weight: 600; transition: all 0.3s ease;">Découvrir nos services</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SERVICES SECTION -->
-    <section id="services" class="services">
-        <div class="container">
-            <div class="section-intro fade-in">
-                <div class="section-tag">
-                    <span>🎯</span> Nos Expertises
-                </div>
-                <h2>Nos services d'accompagnement</h2>
-                <p>15 objectifs spécifiques organisés en 5 domaines d'expertise pour transformer l'insertion professionnelle</p>
-            </div>
-            <div class="services-grid">
-                <!-- 6 service cards, comme dans le code source fourni -->
-                <!-- A, B, C, D, E, et Évaluation d'Impact Social & Éthique -->
-                <!-- ... contenu inchangé ... -->
-            </div>
-        </div>
-    </section>
-
-    <!-- REGIONAL / PRESENCE SECTION -->
-    <section id="presence" class="regional">
-        <div class="container">
-            <div class="section-intro fade-in">
-                <div class="section-tag">
-                    <span>📍</span> Notre Présence
-                </div>
-            </div>
-            <div class="regional-grid">
-                <div class="regional-text fade-in">
-                    <h2>Une présence ancrée, un <span class="text-gradient">impact global</span></h2>
-                    <p>Basée en Alsace avec notre siège à Eckbolsheim, Alt&Act déploie son expertise sur les territoires français et européens, adaptant ses méthodes aux spécificités locales tout en préservant l'universalité de ses valeurs.</p>
-                    <p>Notre statut d'ONG indépendante nous permet de collaborer avec les institutions tout en maintenant notre liberté d'action et notre éthique.</p>
-                    <div class="regional-stats">
-                        <div class="regional-stat">
-                            <div class="regional-stat-number">15</div>
-                            <div class="regional-stat-label">Pays d'intervention</div>
-                        </div>
-                        <div class="regional-stat">
-                            <div class="regional-stat-number">3</div>
-                            <div class="regional-stat-label">Bureaux régionaux</div>
-                        </div>
-                        <div class="regional-stat">
-                            <div class="regional-stat-number">50+</div>
-                            <div class="regional-stat-label">Partenaires locaux</div>
-                        </div>
-                        <div class="regional-stat">
-                            <div class="regional-stat-number">1908</div>
-                            <div class="regional-stat-label">Droit local alsacien</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="regional-map fade-in">
-                    <div>
-                        <h3>🏢 Siège Social</h3>
-                        <p>23 rue de la Croix<br>67100 Eckbolsheim<br>Strasbourg, Alsace</p>
-                        <br>
-                        <p><strong>Zones d'action :</strong><br>France • Union Européenne • Pays partenaires</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- TEAM PHOTOS -->
-    <section class="team-photos">
-        <div class="container">
-            <div class="section-intro fade-in">
-                <div class="section-tag">
-                    <span>👥</span> Notre Équipe
-                </div>
-                <h2>Notre équipe en action</h2>
-                <p>Découvrez les visages de ceux qui transforment quotidiennement l'insertion professionnelle</p>
-            </div>
-            <div class="photos-grid">
-                <!-- 4 photo cards comme dans le code source -->
-            </div>
-        </div>
-    </section>
-
-    <!-- CONTACT / CALL TO ACTION -->
-    <section id="contact" class="cta-section">
-        <div class="container">
-            <h2>Rejoignez notre mission</h2>
-            <p>Ensemble, construisons un monde professionnel plus humain, où chaque personne peut développer son potentiel dans la dignité, le respect mutuel et l'alignement avec ses valeurs profondes.</p>
-            <div class="cta-buttons">
-                <a href="mailto:contact@altact.org" class="btn-white">Nous contacter</a>
-                <a href="#services" class="btn-outline">Découvrir nos services</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
     <footer>
-        <div class="container">
-            <div class="footer-content">
-                <!-- 4 colonnes : Brand, Domaines, Gouvernance, Ressources -->
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Alt&Act - ONG Altérité & Action - Tous droits réservés</p>
-                <div class="footer-legal">
-                    <a href="#">Mentions légales</a>
-                    <a href="#">Confidentialité</a>
-                    <a href="#">RGPD</a>
-                </div>
-            </div>
+        <div class="footer-content">
+            <h3>Alt&Act - Altérité & Action</h3>
+            <p>Association de droit local alsacien-mosellan (loi du 19 avril 1908) dédiée à l'insertion professionnelle sans barrières. Nous développons des dispositifs d'accompagnement holistique respectueux de la personne et des aspirations profondes.</p>
+            <p><strong>Siège :</strong> 23 rue de la Croix, 67100 Eckbolsheim</p>
+            <p><strong>Approche :</strong> Valeurs humanistes universelles, laïque et sans affiliation confessionnelle</p>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Alt&Act - ONG Altérité & Action - Tous droits réservés</p>
         </div>
     </footer>
 
@@ -381,7 +655,7 @@ ok<!DOCTYPE html>
 
         // Animate numbers on scroll
         function animateNumbers() {
-            const numbers = document.querySelectorAll('.stat-number, .metric-number, .regional-stat-number');
+            const numbers = document.querySelectorAll('.stat-number');
             numbers.forEach(num => {
                 const target = parseInt(num.textContent.replace(/\D/g, ''));
                 if (target && target > 0) {
