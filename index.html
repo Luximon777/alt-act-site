@@ -4,498 +4,342 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alt&Act | Insertion professionnelle sans barrières</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        * {
+        body {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: Arial, sans-serif;
             line-height: 1.6;
-            color: #1f2937;
-            background: #ffffff;
+            color: #333;
         }
-
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            z-index: 1000;
+        
+        .header {
+            background: #1e3a8a;
+            color: white;
             padding: 1rem 0;
-            border-bottom: 1px solid #f1f5f9;
-            transition: all 0.3s ease;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
         }
-
+        
         .nav-container {
             max-width: 1200px;
             margin: 0 auto;
+            padding: 0 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 2rem;
         }
-
+        
         .logo {
-            font-size: 1.75rem;
-            font-weight: 800;
-            color: #1f2937;
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
             text-decoration: none;
         }
-
+        
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 2rem;
-            align-items: center;
+            margin: 0;
+            padding: 0;
+            gap: 20px;
         }
-
+        
         .nav-links a {
-            color: #64748b;
+            color: white;
             text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: color 0.3s ease;
+            padding: 8px 16px;
+            border-radius: 5px;
+            transition: background 0.3s;
         }
-
+        
         .nav-links a:hover {
-            color: #1e3a8a;
+            background: rgba(255,255,255,0.2);
         }
-
-        .nav-cta {
-            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
-            color: white !important;
-            padding: 0.75rem 1.5rem;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 12px rgba(30, 58, 138, 0.3);
-        }
-
-        .nav-cta:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(30, 58, 138, 0.4);
-        }
-
-        /* Hero Section */
+        
         .hero {
-            padding: 10rem 0 8rem;
-            background: linear-gradient(135deg, rgba(30, 58, 138, 0.9) 0%, rgba(59, 130, 246, 0.9) 100%), 
-                        url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+            background: linear-gradient(rgba(30, 58, 138, 0.8), rgba(59, 130, 246, 0.8)), url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
             color: white;
+            text-align: center;
+            padding: 120px 20px 80px;
             min-height: 100vh;
             display: flex;
             align-items: center;
+            justify-content: center;
         }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 100%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-            transform: rotate(15deg);
-            animation: shimmer 3s ease-in-out infinite;
+        
+        .hero-content {
+            max-width: 800px;
         }
-
-        @keyframes shimmer {
-            0%, 100% { opacity: 0; }
-            50% { opacity: 1; }
-        }
-
-        .hero-container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero-tag {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: rgba(255, 255, 255, 0.15);
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 2rem;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px);
-        }
-
+        
         .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 800;
-            color: white;
-            margin-bottom: 1.5rem;
-            line-height: 1.1;
-            letter-spacing: -0.025em;
+            font-size: 48px;
+            margin-bottom: 20px;
+            line-height: 1.2;
         }
-
-        .hero-subtitle {
-            font-size: 1.25rem;
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 3rem;
-            line-height: 1.6;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
+        
+        .hero .highlight {
+            color: #f59e0b;
         }
-
-        .hero-stats {
+        
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+        
+        .stats {
             display: flex;
             justify-content: center;
-            gap: 3rem;
-            margin-bottom: 3rem;
+            gap: 40px;
+            margin: 40px 0;
             flex-wrap: wrap;
         }
-
+        
         .stat {
-            text-align: center;
             background: white;
-            padding: 2rem 1.5rem;
-            border-radius: 20px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-            border: 1px solid #f1f5f9;
-            min-width: 140px;
-            transition: all 0.3s ease;
+            color: #333;
+            padding: 30px 20px;
+            border-radius: 15px;
+            text-align: center;
+            min-width: 120px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
-
-        .stat:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-        }
-
+        
         .stat-number {
-            font-size: 2.5rem;
-            font-weight: 800;
+            font-size: 36px;
+            font-weight: bold;
             color: #1e3a8a;
             display: block;
-            margin-bottom: 0.5rem;
         }
-
+        
         .stat-label {
-            font-size: 0.85rem;
-            color: #64748b;
-            font-weight: 500;
+            font-size: 14px;
+            color: #666;
         }
-
-        .hero-cta {
+        
+        .cta-buttons {
             display: flex;
-            gap: 1rem;
+            gap: 20px;
             justify-content: center;
             flex-wrap: wrap;
         }
-
+        
         .btn-primary {
-            background: linear-gradient(135deg, #f59e0b 0%, #f97316 100%);
+            background: #f59e0b;
             color: white;
-            padding: 1rem 2rem;
-            border-radius: 12px;
+            padding: 15px 30px;
+            border-radius: 10px;
             text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
-            border: none;
-            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
         }
-
+        
         .btn-primary:hover {
+            background: #f97316;
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(245, 158, 11, 0.5);
         }
-
+        
         .btn-secondary {
-            background: rgba(255, 255, 255, 0.1);
+            background: transparent;
             color: white;
-            padding: 1rem 2rem;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            border-radius: 12px;
+            padding: 15px 30px;
+            border: 2px solid white;
+            border-radius: 10px;
             text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(10px);
+            font-weight: bold;
+            transition: all 0.3s;
         }
-
+        
         .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.2);
-            border-color: rgba(255, 255, 255, 0.5);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
+            background: white;
+            color: #1e3a8a;
         }
-
-        /* Section commune */
+        
+        .section {
+            padding: 80px 20px;
+        }
+        
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 2rem;
         }
-
-        .section-intro {
+        
+        .section-header {
             text-align: center;
-            margin-bottom: 4rem;
+            margin-bottom: 60px;
         }
-
+        
         .section-tag {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            background: #e0f2fe;
             color: #0369a1;
-            padding: 0.5rem 1rem;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            border: 1px solid #bae6fd;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 20px;
         }
-
-        .section-intro h2 {
-            font-size: 2.5rem;
-            font-weight: 800;
+        
+        .section h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
             color: #0f172a;
-            margin-bottom: 1rem;
-            line-height: 1.2;
         }
-
-        .section-intro p {
-            font-size: 1.1rem;
+        
+        .section p {
+            font-size: 18px;
             color: #475569;
             max-width: 700px;
             margin: 0 auto;
-            line-height: 1.6;
         }
-
-        /* Three Pillars Section */
-        .pillars {
-            padding: 8rem 0;
-            background: white;
-        }
-
+        
         .pillars-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
         }
-
+        
         .pillar-card {
             background: white;
-            padding: 2.5rem;
-            border-radius: 24px;
+            padding: 40px;
+            border-radius: 20px;
             text-align: center;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-            border: 1px solid #f1f5f9;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            border-top: 4px solid #4f46e5;
+            transition: transform 0.3s;
         }
-
-        .pillar-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(135deg, #4f46e5 0%, #6366f1 100%);
-        }
-
+        
         .pillar-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
         }
-
+        
         .pillar-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, #4f46e5 0%, #6366f1 100%);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 2rem;
-            font-size: 2rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 20px rgba(79, 70, 229, 0.3);
+            font-size: 48px;
+            margin-bottom: 20px;
         }
-
-        .pillar-card:hover .pillar-icon {
-            transform: scale(1.1) rotate(5deg);
-        }
-
+        
         .pillar-card h3 {
-            font-size: 1.5rem;
-            font-weight: 700;
+            font-size: 24px;
+            margin-bottom: 15px;
             color: #0f172a;
-            margin-bottom: 1rem;
         }
-
-        .pillar-card p {
-            color: #64748b;
-            line-height: 1.6;
-            font-size: 1rem;
-        }
-
-        /* About Section */
+        
         .about {
-            padding: 8rem 0;
-            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            background: #f8fafc;
         }
-
+        
         .about-content {
-            display: flex;
-            flex-direction: column;
-            gap: 6rem;
+            display: grid;
+            gap: 60px;
         }
-
+        
         .about-section h3 {
-            font-size: 2rem;
-            font-weight: 800;
+            font-size: 28px;
+            margin-bottom: 20px;
             color: #0f172a;
-            margin-bottom: 2rem;
             text-align: center;
         }
-
-        .about-section > p {
-            font-size: 1.1rem;
-            color: #475569;
+        
+        .about-section p {
+            font-size: 16px;
             line-height: 1.7;
+            color: #475569;
             text-align: center;
             max-width: 800px;
-            margin: 0 auto 3rem;
+            margin: 0 auto 20px;
         }
-
-        /* Footer simple */
-        footer {
+        
+        .contact {
+            background: #4f46e5;
+            color: white;
+            text-align: center;
+        }
+        
+        .contact h2 {
+            color: white;
+            margin-bottom: 20px;
+        }
+        
+        .contact p {
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 40px;
+        }
+        
+        .footer {
             background: #0f172a;
             color: #94a3b8;
-            padding: 4rem 0 2rem;
             text-align: center;
+            padding: 60px 20px 30px;
         }
-
-        .footer-content {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .footer-content h3 {
+        
+        .footer h3 {
             color: white;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
+            margin-bottom: 20px;
         }
-
-        .footer-content p {
+        
+        .footer p {
+            margin-bottom: 15px;
             line-height: 1.6;
-            margin-bottom: 2rem;
-            font-size: 0.95rem;
         }
-
+        
         .footer-bottom {
             border-top: 1px solid #334155;
-            padding-top: 2rem;
-            margin-top: 2rem;
-            font-size: 0.9rem;
+            margin-top: 40px;
+            padding-top: 20px;
+            font-size: 14px;
         }
-
-        /* Responsive */
+        
         @media (max-width: 768px) {
-            .hero h1 { 
-                font-size: 2.5rem; 
+            .nav-links {
+                display: none;
             }
-            .hero-stats { 
-                flex-direction: column; 
-                gap: 1.5rem;
+            .hero h1 {
+                font-size: 32px;
+            }
+            .stats {
+                flex-direction: column;
                 align-items: center;
             }
-            .hero-cta { 
-                flex-direction: column; 
+            .cta-buttons {
+                flex-direction: column;
                 align-items: center;
-                max-width: 300px;
-                margin: 0 auto;
             }
-            .pillars-grid { 
-                grid-template-columns: 1fr; 
+            .section h2 {
+                font-size: 28px;
             }
-            .nav-links { 
-                display: none; 
-            }
-            .container { 
-                padding: 0 1rem; 
-            }
-            .hero {
-                background-attachment: scroll;
-            }
-        }
-
-        /* Animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Utility classes */
-        .text-gradient {
-            background: linear-gradient(135deg, #4f46e5 0%, #6366f1 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        /* Highlight color */
-        .highlight {
-            color: #f59e0b;
         }
     </style>
 </head>
 <body>
-    <nav>
+    <header class="header">
         <div class="nav-container">
             <a href="#" class="logo">Alt&Act</a>
-            <ul class="nav-links">
-                <li><a href="#mission">Notre approche</a></li>
-                <li><a href="#apropos">À propos</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="#contact" class="nav-cta">Nous contacter</a></li>
-            </ul>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#mission">Notre approche</a></li>
+                    <li><a href="#apropos">À propos</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
         </div>
-    </nav>
+    </header>
 
     <section class="hero">
-        <div class="hero-container">
-            <div class="hero-tag">
-                <span>🏢</span> ONG Altérité & Action
+        <div class="hero-content">
+            <div style="background: rgba(255,255,255,0.1); padding: 10px 20px; border-radius: 25px; display: inline-block; margin-bottom: 30px;">
+                🏢 ONG Altérité & Action
             </div>
-            <h1>L'insertion professionnelle <span class="highlight">sans barrières</span></h1>
-            <p class="hero-subtitle">Nous développons des dispositifs d'accompagnement holistique qui respectent la valeur intrinsèque de chaque individu et intègrent ses aspirations profondes, pour transformer l'approche traditionnelle de l'insertion professionnelle.</p>
             
-            <div class="hero-stats">
+            <h1>L'insertion professionnelle <span class="highlight">sans barrières</span></h1>
+            
+            <p>Nous développons des dispositifs d'accompagnement holistique qui respectent la valeur intrinsèque de chaque individu et intègrent ses aspirations profondes, pour transformer l'approche traditionnelle de l'insertion professionnelle.</p>
+            
+            <div class="stats">
                 <div class="stat">
                     <span class="stat-number">2000+</span>
                     <span class="stat-label">Personnes accompagnées</span>
@@ -510,37 +354,35 @@
                 </div>
             </div>
 
-            <div class="hero-cta">
+            <div class="cta-buttons">
                 <a href="#mission" class="btn-primary">Découvrir notre approche</a>
                 <a href="#apropos" class="btn-secondary">En savoir plus</a>
             </div>
         </div>
     </section>
 
-    <section id="mission" class="pillars">
+    <section id="mission" class="section">
         <div class="container">
-            <div class="section-intro fade-in">
-                <div class="section-tag">
-                    <span>🚀</span> Notre Mission
-                </div>
+            <div class="section-header">
+                <div class="section-tag">🚀 Notre Mission</div>
                 <h2>Notre approche transformative</h2>
                 <p>Trois piliers interdépendants pour révolutionner l'insertion professionnelle et construire une société plus équitable.</p>
             </div>
 
             <div class="pillars-grid">
-                <div class="pillar-card fade-in">
+                <div class="pillar-card">
                     <div class="pillar-icon">💡</div>
                     <h3>Innovation Sociale</h3>
                     <p>Nous concevons et expérimentons des dispositifs d'accompagnement "sans barrières" qui intègrent la quête de sens et les aspirations profondes des individus, dépassant les approches traditionnelles purement techniques.</p>
                 </div>
 
-                <div class="pillar-card fade-in">
+                <div class="pillar-card">
                     <div class="pillar-icon">🤝</div>
                     <h3>Accompagnement Holistique</h3>
                     <p>Notre méthode privilégie le respect de la personne et substitue la coopération à la compétition, offrant un soutien psychologique, juridique et professionnel adapté à chaque parcours unique.</p>
                 </div>
 
-                <div class="pillar-card fade-in">
+                <div class="pillar-card">
                     <div class="pillar-icon">🌍</div>
                     <h3>Impact Systémique</h3>
                     <p>Par nos partenariats en intelligence collective et notre présence internationale, nous catalysons la transformation des pratiques d'insertion à l'échelle européenne et au-delà.</p>
@@ -549,30 +391,28 @@
         </div>
     </section>
 
-    <section id="apropos" class="about">
+    <section id="apropos" class="section about">
         <div class="container">
-            <div class="section-intro fade-in">
-                <div class="section-tag">
-                    <span>⭐</span> Notre Histoire
-                </div>
+            <div class="section-header">
+                <div class="section-tag">⭐ Notre Histoire</div>
                 <h2>À propos d'Alt&Act</h2>
                 <p>Une association fondée sur des principes humanistes universels pour transformer l'insertion professionnelle</p>
             </div>
 
             <div class="about-content">
-                <div class="about-section fade-in">
+                <div class="about-section">
                     <h3>🌟 Notre inspiration éthique</h3>
                     <p>Alt&Act s'inspire des principes fondamentaux de <strong>dignité humaine</strong>, d'<strong>unité dans la diversité</strong> et de <strong>justice sociale</strong>. Nous reconnaissons que les défis contemporains nécessitent une approche qui transcende les simples conditions matérielles pour intégrer <strong>la quête de sens, les valeurs universelles communes et les aspirations profondes</strong> de chaque individu.</p>
                     
                     <p><strong>Nous condamnons toutes formes de discriminations</strong> et œuvrons pour un monde professionnel où chaque personne, quelle que soit son origine, sa condition sociale, son âge, son genre ou ses croyances, peut s'épanouir dans la dignité et le respect mutuel.</p>
                 </div>
 
-                <div class="about-section fade-in">
-                    <h3>🔬 Notre méthodologie de recherche-action</h3>
-                    <p>Alt&Act développe une approche structurée d'innovation sociale selon une méthodologie rigoureuse en quatre phases : observation et analyse, conception et expérimentation, évaluation et ajustement, puis diffusion et essaimage.</p>
+                <div class="about-section">
+                    <h3>🔬 Notre méthodologie</h3>
+                    <p>Alt&Act développe une approche structurée d'innovation sociale selon une méthodologie rigoureuse en quatre phases : <strong>observation et analyse</strong>, <strong>conception et expérimentation</strong>, <strong>évaluation et ajustement</strong>, puis <strong>diffusion et essaimage</strong>.</p>
                 </div>
 
-                <div class="about-section fade-in">
+                <div class="about-section">
                     <h3>🏢 Notre présence</h3>
                     <p><strong>Siège Social :</strong> 23 rue de la Croix, 67100 Eckbolsheim, Strasbourg, Alsace</p>
                     <p><strong>Statut :</strong> Association de droit local alsacien-mosellan (loi du 19 avril 1908)</p>
@@ -582,34 +422,33 @@
         </div>
     </section>
 
-    <section id="contact" class="hero" style="padding: 6rem 0; background: linear-gradient(135deg, #4f46e5 0%, #6366f1 100%);">
+    <section id="contact" class="section contact">
         <div class="container">
-            <div style="text-align: center;">
-                <h2 style="font-size: 2.5rem; font-weight: 800; color: white; margin-bottom: 1.5rem;">Rejoignez notre mission</h2>
-                <p style="font-size: 1.1rem; color: rgba(255, 255, 255, 0.9); margin-bottom: 3rem; max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.6;">Ensemble, construisons un monde professionnel plus humain, où chaque personne peut développer son potentiel dans la dignité, le respect mutuel et l'alignement avec ses valeurs profondes.</p>
-                
-                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                    <a href="mailto:contact@altact.org" style="background: white; color: #4f46e5; padding: 1rem 2rem; border-radius: 12px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);">Nous contacter</a>
-                    <a href="#mission" style="background: transparent; color: white; padding: 1rem 2rem; border: 2px solid rgba(255, 255, 255, 0.3); border-radius: 12px; text-decoration: none; font-weight: 600; transition: all 0.3s ease;">Découvrir nos services</a>
-                </div>
+            <h2>Rejoignez notre mission</h2>
+            <p>Ensemble, construisons un monde professionnel plus humain, où chaque personne peut développer son potentiel dans la dignité, le respect mutuel et l'alignement avec ses valeurs profondes.</p>
+            
+            <div class="cta-buttons">
+                <a href="mailto:contact@altact.org" class="btn-primary">Nous contacter</a>
+                <a href="#mission" class="btn-secondary">Découvrir nos services</a>
             </div>
         </div>
     </section>
 
-    <footer>
-        <div class="footer-content">
+    <footer class="footer">
+        <div class="container">
             <h3>Alt&Act - Altérité & Action</h3>
-            <p>Association de droit local alsacien-mosellan (loi du 19 avril 1908) dédiée à l'insertion professionnelle sans barrières. Nous développons des dispositifs d'accompagnement holistique respectueux de la personne et des aspirations profondes.</p>
+            <p>Association de droit local alsacien-mosellan (loi du 19 avril 1908) dédiée à l'insertion professionnelle sans barrières.</p>
             <p><strong>Siège :</strong> 23 rue de la Croix, 67100 Eckbolsheim</p>
             <p><strong>Approche :</strong> Valeurs humanistes universelles, laïque et sans affiliation confessionnelle</p>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 Alt&Act - ONG Altérité & Action - Tous droits réservés</p>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Alt&Act - ONG Altérité & Action - Tous droits réservés</p>
+            </div>
         </div>
     </footer>
 
     <script>
-        // Smooth scrolling
+        // Navigation fluide
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -623,37 +462,7 @@
             });
         });
 
-        // Navbar scroll effect
-        window.addEventListener('scroll', () => {
-            const nav = document.querySelector('nav');
-            if (window.scrollY > 100) {
-                nav.style.background = 'rgba(255, 255, 255, 0.98)';
-                nav.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.1)';
-            } else {
-                nav.style.background = 'rgba(255, 255, 255, 0.95)';
-                nav.style.boxShadow = 'none';
-            }
-        });
-
-        // Scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Animate numbers on scroll
+        // Animation des chiffres
         function animateNumbers() {
             const numbers = document.querySelectorAll('.stat-number');
             numbers.forEach(num => {
@@ -673,17 +482,10 @@
             });
         }
 
-        // Trigger number animation when hero is visible
-        const heroObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    setTimeout(animateNumbers, 500);
-                    heroObserver.unobserve(entry.target);
-                }
-            });
+        // Déclencher l'animation au chargement
+        window.addEventListener('load', () => {
+            setTimeout(animateNumbers, 500);
         });
-
-        heroObserver.observe(document.querySelector('.hero'));
     </script>
 </body>
 </html>
