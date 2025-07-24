@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -977,6 +976,256 @@
             color: #94a3b8;
         }
 
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background: white;
+            margin: 5% auto;
+            padding: 0;
+            border-radius: 24px;
+            width: 90%;
+            max-width: 800px;
+            max-height: 85vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            animation: modalSlideIn 0.3s ease-out;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .modal-header {
+            background: linear-gradient(135deg, #4f46e5 0%, #6366f1 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 24px 24px 0 0;
+            position: relative;
+        }
+
+        .modal-header h2 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin: 0;
+        }
+
+        .modal-header p {
+            opacity: 0.9;
+            margin: 0.5rem 0 0 0;
+            font-size: 1rem;
+        }
+
+        .close {
+            position: absolute;
+            right: 1.5rem;
+            top: 1.5rem;
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .close:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.1);
+        }
+
+        .modal-body {
+            padding: 2rem;
+        }
+
+        .member-card {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+
+        .member-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .member-header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .member-avatar {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #4f46e5 0%, #6366f1 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            font-weight: 800;
+            flex-shrink: 0;
+        }
+
+        .member-info h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 0.5rem;
+        }
+
+        .member-role {
+            color: #4f46e5;
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .member-company {
+            color: #64748b;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .member-location {
+            color: #64748b;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .member-description {
+            color: #475569;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .member-expertise {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .expertise-tag {
+            background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%);
+            color: #0369a1;
+            padding: 0.5rem 1rem;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 1px solid #7dd3fc;
+        }
+
+        .governance-item.clickable {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .governance-item.clickable:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .clickable-metric {
+            cursor: pointer;
+            transition: all 0.3s ease;
+            padding: 0.25rem 0.5rem;
+            border-radius: 8px;
+        }
+
+        .clickable-metric:hover {
+            background: rgba(96, 165, 250, 0.2);
+            color: #1e40af;
+            transform: scale(1.05);
+        }
+
+        .special-metric {
+            background: linear-gradient(135deg, #f59e0b 0%, #f97316 100%);
+            border: 2px solid #fb923c;
+            position: relative;
+            overflow: hidden;
+            animation: pulseGlow 3s ease-in-out infinite;
+        }
+
+        .special-metric::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #f59e0b, #f97316, #fb923c, #fdba74);
+            background-size: 400% 400%;
+            border-radius: 20px;
+            z-index: -1;
+            animation: gradientShift 4s ease infinite;
+        }
+
+        .special-metric .metric-number {
+            color: white;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .special-metric .metric-label {
+            color: white;
+            font-weight: 600;
+        }
+
+        .special-metric:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(245, 158, 11, 0.4);
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% {
+                box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+            }
+            50% {
+                box-shadow: 0 8px 25px rgba(245, 158, 11, 0.6);
+            }
+        }
+
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.5rem; }
@@ -1007,6 +1256,32 @@
                 text-align: center;
             }
             .container { padding: 0 1rem; }
+            
+            /* Modal responsive */
+            .modal-content {
+                margin: 2% auto;
+                width: 95%;
+                max-height: 95vh;
+            }
+            .modal-header {
+                padding: 1.5rem;
+            }
+            .modal-header h2 {
+                font-size: 1.5rem;
+            }
+            .modal-body {
+                padding: 1.5rem;
+            }
+            .member-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+            .member-avatar {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
         }
 
         /* Animations */
@@ -1041,6 +1316,7 @@
                 <li><a href="#impact">Impact</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#presence">Présence</a></li>
+                <li><a href="#" id="charte-nav-btn">Notre charte éthique</a></li>
                 <li><a href="#contact" class="nav-cta">Nous contacter</a></li>
             </ul>
         </div>
@@ -1069,6 +1345,384 @@
                     <span class="stat-label">Pays partenaires</span>
                 </div>
             </div>
+
+    <!-- Modal Charte Éthique -->
+    <div id="charteEthiqueModal" class="modal">
+        <div class="modal-content" style="max-width: 900px;">
+            <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2>📜 Charte Éthique Alt&Act</h2>
+                <p>Nos engagements pour une insertion professionnelle humaniste et transformatrice</p>
+            </div>
+            <div class="modal-body" style="max-height: 70vh; overflow-y: auto; color: #1f2937;">
+                
+                <div class="member-card" style="background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); border: 1px solid #7dd3fc;">
+                    <div style="text-align: center; margin-bottom: 2rem;">
+                        <h3 style="color: #0369a1; margin-bottom: 1rem;">🌟 Notre Engagement Fondamental</h3>
+                        <p style="font-style: italic; font-size: 1.1rem; color: #0f172a;">
+                            Alt&Act place la <strong>dignité humaine</strong>, l'<strong>unité dans la diversité</strong> et la <strong>justice sociale</strong> au cœur de toutes ses actions. Cette charte définit nos engagements éthiques incontournables pour transformer l'insertion professionnelle en respectant l'intégrité et les aspirations profondes de chaque personne.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="member-card">
+                    <h3 style="color: #4f46e5; margin-bottom: 1rem;">🧭 I. Principes Fondateurs</h3>
+                    <p style="margin-bottom: 1rem; color: #374151;"><strong>Alt&Act s'engage à promouvoir une insertion "sans barrières" fondée sur :</strong></p>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 0.75rem; color: #374151;">
+                            <span style="color: #4f46e5; font-weight: bold;">•</span>
+                            <span><strong>Respect inconditionnel</strong> de la dignité humaine et des aspirations personnelles</span>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 0.75rem; color: #374151;">
+                            <span style="color: #4f46e5; font-weight: bold;">•</span>
+                            <span><strong>Égalité absolue</strong> de traitement sans aucune forme de discrimination</span>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 0.75rem; color: #374151;">
+                            <span style="color: #4f46e5; font-weight: bold;">•</span>
+                            <span><strong>Coopération</strong> substituée à la compétition destructrice</span>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 0.75rem; color: #374151;">
+                            <span style="color: #4f46e5; font-weight: bold;">•</span>
+                            <span><strong>Participation active</strong> et co-construction avec les personnes accompagnées</span>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 0.75rem; color: #374151;">
+                            <span style="color: #4f46e5; font-weight: bold;">•</span>
+                            <span><strong>Service à l'humanité</strong> au-delà des intérêts matériels individuels</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="member-card">
+                    <h3 style="color: #059669; margin-bottom: 1rem;">🤝 II. Accompagnement Éthique des Personnes</h3>
+                    <p style="margin-bottom: 1rem; color: #374151;"><strong>Nous nous engageons à :</strong></p>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 0.75rem; color: #374151;">
+                            <span style="color: #059669; font-weight: bold;">✓</span>
+                            <span>Accueillir chaque personne dans sa globalité, sans jugement ni condition</span>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 0.75rem; color: #374151;">
+                            <span style="color: #059669; font-weight: bold;">✓</span>
+                            <span>Co-construire des parcours respectant les valeurs et aspirations personnelles</span>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 0.75rem; color: #374151;">
+                            <span style="color: #059669; font-weight: bold;">✓</span>
+                            <span>Garantir un cadre sécurisant, confidentiel et bienveillant</span>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 0.75rem; color: #374151;">
+                            <span style="color: #059669; font-weight: bold;">✓</span>
+                            <span>Favoriser l'autonomisation et le développement du potentiel humain</span>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 0.75rem; color: #374151;">
+                            <span style="color: #059669; font-weight: bold;">✓</span>
+                            <span>Refuser toute forme de paternalisme, d'assistanat ou de contrôle</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="member-card">
+                    <h3 style="color: #7c3aed; margin-bottom: 1rem;">🏢 III. Transformation des Organisations</h3>
+                    <p style="margin-bottom: 1rem; color: #374151;"><strong>Auprès des entreprises et employeurs, nous prônons :</strong></p>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 0.75rem; color: #374151;">
+                            <span style="color: #7c3aed; font-weight: bold;">→</span>
+                            <span>La promotion de <strong>l'inclusion authentique</strong> et de la diversité comme richesse</span>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 0.75rem; color: #374151;">
+                            <span style="color: #7c3aed; font-weight: bold;">→</span>
+                            <span>Le développement de <strong>pratiques RH éthiques</strong> basées sur l'équité</span>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 0.75rem; color: #374151;">
+                            <span style="color: #7c3aed; font-weight: bold;">→</span>
+                            <span>L'accompagnement vers une <strong>gouvernance coopérative</strong> et transparente</span>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 0.75rem; color: #374151;">
+                            <span style="color: #7c3aed; font-weight: bold;">→</span>
+                            <span>La construction d'un <strong>système économique plus juste</strong> et solidaire</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="member-card">
+                    <h3 style="color: #dc2626; margin-bottom: 1rem;">⚖️ IV. Prévention et Vigilance</h3>
+                    <p style="margin-bottom: 1rem; color: #374151;"><strong>Nous nous opposons fermement à :</strong></p>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 0.75rem; color: #374151;">
+                            <span style="color: #dc2626; font-weight: bold;">✗</span>
+                            <span>Toute forme de <strong>discrimination</strong> (origine, genre, âge, religion, orientation, handicap)</span>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 0.75rem; color: #374151;">
+                            <span style="color: #dc2626; font-weight: bold;">✗</span>
+                            <span>Le <strong>harcèlement</strong> et les violences symboliques ou structurelles</span>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 0.75rem; color: #374151;">
+                            <span style="color: #dc2626; font-weight: bold;">✗</span>
+                            <span>L'utilisation du <strong>numérique comme outil de contrôle</strong> ou d'exclusion</span>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 0.75rem; color: #374151;">
+                            <span style="color: #dc2626; font-weight: bold;">✗</span>
+                            <span>Les <strong>pratiques déshonorantes</strong> ou attentatoires à la dignité</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="member-card">
+                    <h3 style="color: #ea580c; margin-bottom: 1rem;">💻 V. Éthique Numérique et Innovation</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 0.75rem; color: #374151;">
+                            <span style="color: #ea580c; font-weight: bold;">🔒</span>
+                            <span><strong>Protection maximale</strong> des données personnelles (RGPD+)</span>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 0.75rem; color: #374151;">
+                            <span style="color: #ea580c; font-weight: bold;">♿</span>
+                            <span><strong>Accessibilité universelle</strong> de tous nos outils numériques</span>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 0.75rem; color: #374151;">
+                            <span style="color: #ea580c; font-weight: bold;">⚡</span>
+                            <span><strong>Transparence algorithmique</strong> dans nos dispositifs d'accompagnement</span>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 0.75rem; color: #374151;">
+                            <span style="color: #ea580c; font-weight: bold;">🌱</span>
+                            <span><strong>Souveraineté numérique</strong> au service de l'émancipation</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="member-card">
+                    <h3 style="color: #0369a1; margin-bottom: 1rem;">🌍 VI. Gouvernance et Transparence</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 0.75rem; color: #374151;">
+                            <span style="color: #0369a1; font-weight: bold;">📊</span>
+                            <span><strong>Transparence totale</strong> des décisions et de la gestion financière</span>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 0.75rem; color: #374151;">
+                            <span style="color: #0369a1; font-weight: bold;">🤲</span>
+                            <span><strong>Gouvernance participative</strong> intégrant toutes les parties prenantes</span>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 0.75rem; color: #374151;">
+                            <span style="color: #0369a1; font-weight: bold;">📈</span>
+                            <span><strong>Évaluation d'impact social</strong> rigoureuse et publique</span>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 0.75rem; color: #374151;">
+                            <span style="color: #0369a1; font-weight: bold;">🤝</span>
+                            <span><strong>Prévention des conflits d'intérêts</strong> et consultation collective</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="member-card" style="background: linear-gradient(135deg, #fef3c7 0%, #fed7aa 100%); border: 1px solid #f59e0b;">
+                    <h3 style="color: #92400e; margin-bottom: 1rem; text-align: center;">✍️ Engagement et Application</h3>
+                    <p style="text-align: center; font-weight: 600; color: #0f172a; margin-bottom: 1rem;">
+                        Cette charte s'applique à tous les membres, salariés, partenaires, prestataires et bénéficiaires d'Alt&Act.
+                    </p>
+                    <p style="text-align: center; color: #475569; font-size: 0.95rem;">
+                        Son acceptation est une condition d'adhésion ou de collaboration. Elle constitue le fondement éthique de toutes nos actions et peut être intégrée aux conventions, contrats et lettres d'engagement.
+                    </p>
+                    <div style="text-align: center; margin-top: 1.5rem;">
+                        <span style="background: #f59e0b; color: white; padding: 0.5rem 1rem; border-radius: 8px; font-weight: 600;">
+                            🌟 "L'éthique n'est pas une option, c'est notre essence"
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Dispositifs Innovants -->
+    <div id="dispositifsInnovantsModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2>🚀 Dispositifs Innovants en Développement</h2>
+                <p>Nos outils d'accompagnement "sans barrières" en cours de conception et de validation</p>
+            </div>
+            <div class="modal-body">
+                <div class="member-card">
+                    <div class="member-header">
+                        <div class="member-avatar" style="background: linear-gradient(135deg, #059669 0%, #10b981 100%);">🎯</div>
+                        <div class="member-info">
+                            <h3>Apply VSI Pro</h3>
+                            <div class="member-role">Outil d'orientation professionnelle</div>
+                            <div class="member-company">Phase : Conception avancée</div>
+                            <div class="member-location">📍 Déploiement pilote 2025</div>
+                        </div>
+                    </div>
+                    <div class="member-description">
+                        Outil innovant d'orientation professionnelle basé sur la valorisation des compétences et des aspirations profondes. Apply VSI Pro intègre une approche holistique qui respecte la dignité humaine en analysant les potentialités, les valeurs personnelles et les projets de vie pour proposer des orientations alignées avec l'identité profonde de chaque personne, dépassant les simples critères techniques traditionnels.
+                    </div>
+                    <div class="member-expertise">
+                        <span class="expertise-tag">Orientation professionnelle</span>
+                        <span class="expertise-tag">Valorisation des compétences</span>
+                        <span class="expertise-tag">Analyse holistique</span>
+                        <span class="expertise-tag">Alignement valeurs/projet</span>
+                    </div>
+                </div>
+
+                <div class="member-card">
+                    <div class="member-header">
+                        <div class="member-avatar" style="background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);">📚</div>
+                        <div class="member-info">
+                            <h3>Plateforme Web VSI Pro</h3>
+                            <div class="member-role">Processus d'apprentissage tout au long de la vie</div>
+                            <div class="member-company">Phase : Développement technique</div>
+                            <div class="member-location">📍 Version beta Q2 2025</div>
+                        </div>
+                    </div>
+                    <div class="member-description">
+                        Plateforme numérique révolutionnaire qui accompagne l'évolution professionnelle continue en respectant le rythme et les besoins spécifiques de chaque individu. Intègre des parcours personnalisés d'apprentissage, des outils de développement des compétences transversales et un système de mentorat peer-to-peer favorisant la coopération plutôt que la compétition.
+                    </div>
+                    <div class="member-expertise">
+                        <span class="expertise-tag">Apprentissage personnalisé</span>
+                        <span class="expertise-tag">Développement continu</span>
+                        <span class="expertise-tag">Mentorat collaboratif</span>
+                        <span class="expertise-tag">Compétences transversales</span>
+                    </div>
+                </div>
+
+                <div class="member-card">
+                    <div class="member-header">
+                        <div class="member-avatar" style="background: linear-gradient(135deg, #ea580c 0%, #f97316 100%);">🤝</div>
+                        <div class="member-info">
+                            <h3>Réseau Socioprofessionnel Ubuntoo</h3>
+                            <div class="member-role">Plateforme collaborative d'entraide</div>
+                            <div class="member-company">Phase : Conception éthique</div>
+                            <div class="member-location">📍 Prototype Q3 2025</div>
+                        </div>
+                    </div>
+                    <div class="member-description">
+                        Réseau socioprofessionnel éthique inspiré de la philosophie Ubuntu ("Je suis parce que nous sommes"). Favorise l'entraide mutuelle, le partage d'opportunités et la création de liens professionnels authentiques basés sur la coopération et le service mutuel. Conçu pour contrer l'individualisme des plateformes traditionnelles en privilégiant l'intelligence collective et la solidarité professionnelle.
+                    </div>
+                    <div class="member-expertise">
+                        <span class="expertise-tag">Entraide mutuelle</span>
+                        <span class="expertise-tag">Intelligence collective</span>
+                        <span class="expertise-tag">Éthique Ubuntu</span>
+                        <span class="expertise-tag">Solidarité professionnelle</span>
+                    </div>
+                </div>
+
+                <div class="member-card">
+                    <div class="member-header">
+                        <div class="member-avatar" style="background: linear-gradient(135deg, #dc2626 0%, #ef4444 100%);">💳</div>
+                        <div class="member-info">
+                            <h3>Carte Emploi RE'ACTIF Pro</h3>
+                            <div class="member-role">Identité professionnelle dynamique</div>
+                            <div class="member-company">Phase : Validation partenaires</div>
+                            <div class="member-location">📍 Pilote Alsace 2025</div>
+                        </div>
+                    </div>
+                    <div class="member-description">
+                        Innovation majeure dans le suivi professionnel : carte d'identité professionnelle dynamique équipée d'une puce, d'un écran e-paper et d'un QR code. Elle reflète en temps réel le statut professionnel (demandeur d'emploi, en formation, en accompagnement) via un code couleur intuitif. Centralise efficacement les interactions entre usagers, conseillers, employeurs et systèmes France Travail, tout en garantissant sécurité et portabilité des données par communication chiffrée et authentification forte.
+                    </div>
+                    <div class="member-expertise">
+                        <span class="expertise-tag">Puce & écran e-paper</span>
+                        <span class="expertise-tag">Statut temps réel</span>
+                        <span class="expertise-tag">QR code 3 espaces</span>
+                        <span class="expertise-tag">Sécurité chiffrée</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Comité Scientifique & Éthique -->
+    <div id="comiteScientifiqueModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2>🔬 Comité Scientifique & Éthique</h2>
+                <p>Experts qui évaluent la qualité scientifique et veillent au respect des valeurs éthiques d'Alt&Act</p>
+            </div>
+            <div class="modal-body">
+                <div class="member-card">
+                    <div class="member-header">
+                        <div class="member-avatar">JL</div>
+                        <div class="member-info">
+                            <h3>Jean-Marc Lepain</h3>
+                            <div class="member-role">Directeur</div>
+                            <div class="member-company">Chief of Party - USAID/Deloitte Overseas</div>
+                            <div class="member-location">📍 Dakar, Sénégal</div>
+                        </div>
+                    </div>
+                    <div class="member-description">
+                        Expert international en gestion des finances publiques et réformes fiscales. Diplômé de Sciences Po Paris, Jean-Marc dirige une équipe de 35 personnes pour implémenter des réformes de GFP dans 15 ministères sénégalais. Ancien conseiller régional du FMI et expert fiscal au Ministère des Finances du Brunei, il apporte une expertise unique en transparence fiscale, budgétisation participative et intégration des enjeux climatiques dans les processus budgétaires.
+                    </div>
+                    <div class="member-expertise">
+                        <span class="expertise-tag">Gestion finances publiques</span>
+                        <span class="expertise-tag">Réformes fiscales</span>
+                        <span class="expertise-tag">Transparence budgétaire</span>
+                        <span class="expertise-tag">Développement international</span>
+                        <span class="expertise-tag">Politiques publiques</span>
+                    </div>
+                </div>
+
+                <div class="member-card">
+                    <div class="member-header">
+                        <div class="member-avatar">AH</div>
+                        <div class="member-info">
+                            <h3>Alexandra Horst</h3>
+                            <div class="member-role">Directrice</div>
+                            <div class="member-company">Psychologue Clinicienne - Cabinet privé</div>
+                            <div class="member-location">📍 Strasbourg, Alsace</div>
+                        </div>
+                    </div>
+                    <div class="member-description">
+                        Psychologue clinicienne diplômée d'un Master en Psychologie Clinique Interculturelle et d'un Master en Gestion des Ressources Humaines. Cette double formation lui permet d'allier expertise psychologique et compréhension du monde de l'entreprise. Spécialisée dans l'accompagnement des difficultés professionnelles (harcèlement, licenciement) et dans une approche intégrative adaptée aux besoins de chaque personne.
+                    </div>
+                    <div class="member-expertise">
+                        <span class="expertise-tag">Psychologie interculturelle</span>
+                        <span class="expertise-tag">Ressources humaines</span>
+                        <span class="expertise-tag">Difficultés professionnelles</span>
+                        <span class="expertise-tag">Approche intégrative</span>
+                        <span class="expertise-tag">Adolescents & Adultes</span>
+                    </div>
+                </div>
+
+                <div class="member-card">
+                    <div class="member-header">
+                        <div class="member-avatar">MC</div>
+                        <div class="member-info">
+                            <h3>Martine Caillard</h3>
+                            <div class="member-role">Directrice</div>
+                            <div class="member-company">Productrice culturelle - Token Productions</div>
+                            <div class="member-location">📍 Nancy, Lorraine</div>
+                        </div>
+                    </div>
+                    <div class="member-description">
+                        Productrice et entrepreneure culturelle, ancienne gérante de Token Productions. Spécialisée dans la production documentaire et les projets culturels interculturels, notamment avec l'ADCK (Agence de développement de la culture kanak). Productrice du documentaire "Jean-Marie Tjibaou ou le rêve d'indépendance" (2000), elle apporte une expertise unique en valorisation culturelle, diversité et respect des identités, parfaitement alignée avec les valeurs d'unité dans la diversité d'Alt&Act.
+                    </div>
+                    <div class="member-expertise">
+                        <span class="expertise-tag">Production culturelle</span>
+                        <span class="expertise-tag">Diversité interculturelle</span>
+                        <span class="expertise-tag">Entrepreneuriat créatif</span>
+                        <span class="expertise-tag">Valorisation identitaire</span>
+                        <span class="expertise-tag">Développement culturel</span>
+                    </div>
+                </div>
+
+                <div class="member-card">
+                    <div class="member-header">
+                        <div class="member-avatar">RL</div>
+                        <div class="member-info">
+                            <h3>Rajwantee Lepain</h3>
+                            <div class="member-role">Directrice</div>
+                            <div class="member-company">Psychologue Clinicienne - Cabinet libéral</div>
+                            <div class="member-location">📍 France</div>
+                        </div>
+                    </div>
+                    <div class="member-description">
+                        Psychologue clinicienne diplômée de l'Université Paris 8, formée à la démarche clinique en psychopathologie de l'enfant, de l'adolescent et de l'adulte. Avec son expérience clinique internationale dans diverses institutions (clinique psychiatrique, CMP, centre de cancérologie, ONG), elle apporte une expertise essentielle en accompagnement psychologique, risques psychosociaux et problématiques liées aux transitions professionnelles et à la reconversion.
+                    </div>
+                    <div class="member-expertise">
+                        <span class="expertise-tag">Psychologie clinique</span>
+                        <span class="expertise-tag">Risques psychosociaux</span>
+                        <span class="expertise-tag">Reconversion professionnelle</span>
+                        <span class="expertise-tag">Accompagnement thérapeutique</span>
+                        <span class="expertise-tag">Éthique déontologique</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
             <div class="hero-cta">
                 <a href="#mission" class="btn-primary">Découvrir notre approche</a>
@@ -1202,11 +1856,11 @@
                             <h4>Assemblée Générale</h4>
                             <p>Réunit annuellement tous les membres pour approuver les comptes, le rapport d'activité et les orientations stratégiques.</p>
                         </div>
-                        <div class="governance-item">
+                        <div class="governance-item clickable" id="comite-directeur-btn">
                             <h4>Comité Directeur</h4>
                             <p>3 à 9 membres élus pour 3 ans, responsables de la gestion opérationnelle et de la mise en œuvre des orientations.</p>
                         </div>
-                        <div class="governance-item">
+                        <div class="governance-item clickable" id="comite-scientifique-btn">
                             <h4>Comité Scientifique & Éthique</h4>
                             <p>Experts, professionnels et représentants qui évaluent la qualité scientifique et veillent au respect des valeurs éthiques.</p>
                         </div>
@@ -1242,9 +1896,9 @@
                         <div class="metric-number">100+</div>
                         <div class="metric-label">Entreprises labellisées</div>
                     </div>
-                    <div class="metric">
-                        <div class="metric-number">25</div>
-                        <div class="metric-label">Dispositifs innovants créés</div>
+                    <div class="metric special-metric">
+                        <div class="metric-number">4</div>
+                        <div class="metric-label"><span id="dispositifs-innovants-btn" class="clickable-metric">Dispositifs innovants</span></div>
                     </div>
                 </div>
             </div>
@@ -1450,12 +2104,12 @@
                     <a href="#services">E - Outils & ressources</a>
                 </div>
                 <div class="footer-section">
-                    <h4>Gouvernance</h4>
+                    <h4>Gouvernance & Éthique</h4>
                     <a href="#apropos">Assemblée Générale</a>
                     <a href="#apropos">Comité Directeur</a>
                     <a href="#apropos">Comité Scientifique & Éthique</a>
                     <a href="#apropos">Évaluation d'impact</a>
-                    <a href="#">Règlement intérieur</a>
+                    <a href="#" id="charte-ethique-btn">📜 Charte Éthique</a>
                 </div>
                 <div class="footer-section">
                     <h4>Ressources & Publications</h4>
@@ -1476,6 +2130,84 @@
             </div>
         </div>
     </footer>
+
+    <!-- Modal Comité Directeur -->
+    <div id="comiteDirecteurModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2>🏛️ Comité Directeur</h2>
+                <p>Membres élus responsables de la gestion opérationnelle et de la mise en œuvre des orientations d'Alt&Act</p>
+            </div>
+            <div class="modal-body">
+                <div class="member-card">
+                    <div class="member-header">
+                        <div class="member-avatar">AR</div>
+                        <div class="member-info">
+                            <h3>Anthony Ratolojanahary</h3>
+                            <div class="member-role">Directeur</div>
+                            <div class="member-company">RSSI (CISO) - Caisse nationale de l'Assurance Maladie</div>
+                            <div class="member-location">📍 Île-de-France, France</div>
+                        </div>
+                    </div>
+                    <div class="member-description">
+                        Responsable de la Sécurité des Systèmes d'Information du domaine Mon Espace Santé (MES) et Dossier Médical Partagé (DMP) à la CNAM. Expert en cybersécurité et protection des données de santé, Anthony apporte son expertise technique et sa vision stratégique pour développer des dispositifs d'insertion respectueux de la vie privée et éthiquement responsables.
+                    </div>
+                    <div class="member-expertise">
+                        <span class="expertise-tag">Cybersécurité</span>
+                        <span class="expertise-tag">Protection des données</span>
+                        <span class="expertise-tag">Santé numérique</span>
+                        <span class="expertise-tag">Gouvernance IT</span>
+                        <span class="expertise-tag">Innovation sociale</span>
+                    </div>
+                </div>
+
+                <div class="member-card">
+                    <div class="member-header">
+                        <div class="member-avatar">SV</div>
+                        <div class="member-info">
+                            <h3>Dr. Stéphano Vacher</h3>
+                            <div class="member-role">Directeur</div>
+                            <div class="member-company">Professeur Associé - EM Strasbourg Business School</div>
+                            <div class="member-location">📍 Strasbourg, Alsace</div>
+                        </div>
+                    </div>
+                    <div class="member-description">
+                        Docteur en Sciences de Gestion et enseignant-chercheur au laboratoire HumaNiS de l'EM Strasbourg. Expert en stratégie, RSE et innovation responsable, Stéphano développe une approche humaniste de l'accompagnement professionnel. Son parcours atypique, débuté à 15 ans, lui confère une compréhension unique des enjeux d'insertion et de développement personnel.
+                    </div>
+                    <div class="member-expertise">
+                        <span class="expertise-tag">Stratégie d'entreprise</span>
+                        <span class="expertise-tag">RSE & Développement durable</span>
+                        <span class="expertise-tag">Innovation responsable</span>
+                        <span class="expertise-tag">Leadership éthique</span>
+                        <span class="expertise-tag">Management opérationnel</span>
+                    </div>
+                </div>
+
+                <div class="member-card">
+                    <div class="member-header">
+                        <div class="member-avatar">MA</div>
+                        <div class="member-info">
+                            <h3>Marc Avanzo</h3>
+                            <div class="member-role">Directeur</div>
+                            <div class="member-company">Executive Coach & Consultant en Leadership</div>
+                            <div class="member-location">📍 Lyon/Sarajevo</div>
+                        </div>
+                    </div>
+                    <div class="member-description">
+                        Ingénieur électricien (Supélec) et diplômé MBA INSEAD, Marc a opéré une transformation radicale de carrière pour devenir expert en développement humain. Ancien chef du département de développement du personnel à l'OMS Asie du Sud-Est, il accompagne aujourd'hui les transformations organisationnelles par la Communication Non-Violente et le leadership éthique.
+                    </div>
+                    <div class="member-expertise">
+                        <span class="expertise-tag">Communication Non-Violente</span>
+                        <span class="expertise-tag">Leadership transformationnel</span>
+                        <span class="expertise-tag">Coaching exécutif</span>
+                        <span class="expertise-tag">Développement organisationnel</span>
+                        <span class="expertise-tag">Cultures interculturelles</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script>
         // Smooth scrolling
@@ -1553,6 +2285,87 @@
         });
 
         heroObserver.observe(document.querySelector('.hero'));
+
+        // Modal functionality
+        const modalDirecteur = document.getElementById('comiteDirecteurModal');
+        const modalScientifique = document.getElementById('comiteScientifiqueModal');
+        const modalDispositifs = document.getElementById('dispositifsInnovantsModal');
+        const modalCharte = document.getElementById('charteEthiqueModal');
+        const btnDirecteur = document.getElementById('comite-directeur-btn');
+        const btnScientifique = document.getElementById('comite-scientifique-btn');
+        const btnDispositifs = document.getElementById('dispositifs-innovants-btn');
+        const btnCharte = document.getElementById('charte-ethique-btn');
+        const btnCharteNav = document.getElementById('charte-nav-btn');
+        const closeBtns = document.getElementsByClassName('close');
+
+        // Open Comité Directeur modal
+        btnDirecteur.addEventListener('click', function() {
+            modalDirecteur.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        });
+
+        // Open Comité Scientifique modal
+        btnScientifique.addEventListener('click', function() {
+            modalScientifique.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        });
+
+        // Open Dispositifs Innovants modal
+        btnDispositifs.addEventListener('click', function() {
+            modalDispositifs.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        });
+
+        // Open Charte Éthique modal (footer link)
+        btnCharte.addEventListener('click', function(e) {
+            e.preventDefault();
+            modalCharte.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        });
+
+        // Open Charte Éthique modal (nav link)
+        btnCharteNav.addEventListener('click', function(e) {
+            e.preventDefault();
+            modalCharte.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        });
+
+        // Close modals when clicking on X
+        Array.from(closeBtns).forEach(closeBtn => {
+            closeBtn.addEventListener('click', function() {
+                modalDirecteur.style.display = 'none';
+                modalScientifique.style.display = 'none';
+                modalDispositifs.style.display = 'none';
+                modalCharte.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            });
+        });
+
+        // Close modals when clicking outside
+        window.addEventListener('click', function(event) {
+            if (event.target === modalDirecteur || event.target === modalScientifique || 
+                event.target === modalDispositifs || event.target === modalCharte) {
+                modalDirecteur.style.display = 'none';
+                modalScientifique.style.display = 'none';
+                modalDispositifs.style.display = 'none';
+                modalCharte.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Close modals with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                if (modalDirecteur.style.display === 'block' || modalScientifique.style.display === 'block' || 
+                    modalDispositifs.style.display === 'block' || modalCharte.style.display === 'block') {
+                    modalDirecteur.style.display = 'none';
+                    modalScientifique.style.display = 'none';
+                    modalDispositifs.style.display = 'none';
+                    modalCharte.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            }
+        });
     </script>
 </body>
 </html>
