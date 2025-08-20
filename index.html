@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -1404,6 +1405,19 @@
                 font-size: 1.5rem;
             }
         }
+        
+        /* Google Translate Styling */
+        #google_translate_element {
+            margin-left: 20px;
+        }
+        
+        .goog-te-gadget {
+            font-family: inherit !important;
+        }
+        
+        .goog-te-gadget .goog-te-combo {
+            margin: 0;
+        }
     </style>
 </head>
 <body>
@@ -1418,10 +1432,7 @@
                 <li><a href="#services">Services</a></li>
                 <li><a href="#presence">Présence</a></li>
                 <li><a href="#contact" class="nav-cta">Nous contacter</a></li>
-                <li class="language-selector">
-                    <div class="language-flag-btn flag-fr active" data-lang="fr" title="Français"></div>
-                    <div class="language-flag-btn flag-gb" data-lang="en" title="English"></div>
-                </li>
+                <li id="google_translate_element"></li>
             </ul>
         </div>
     </nav>
@@ -1834,7 +1845,7 @@
                 <span>🏢</span> ONG Altérité & Action
             </div>
             <h1>L'insertion professionnelle <span style="color: #f59e0b;">sans barrières</span></h1>
-            <p class="hero-subtitle">Nous développons des dispositifs d'accompagnement holistique qui respectent la valeur intrinsèque de chaque individu et intègrent ses aspirations profondes, pour transformer l'approche traditionnelle de l'insertion professionnelle.</p>
+            <p class="hero-subtitle">Nous développons des dispositifs d'accompagnement Multidimensionnel qui respectent la valeur intrinsèque de chaque individu et intègrent ses aspirations profondes, pour transformer l'approche traditionnelle de l'insertion professionnelle.</p>
             
             <div class="hero-stats">
                 <div class="stat">
@@ -2075,7 +2086,7 @@
                         <li>Gestion RH éthique fondée sur l'intégrité et l'égalité</li>
                         <li>Politiques d'inclusion privilégiant la coopération</li>
                         <li>Transformation managériale vers le service mutuel</li>
-                        <li>Prévention risques psychosociaux et bien-être holistique</li>
+                        <li>Prévention risques psychosociaux et bien-être Multidimensionnel</li>
                         <li>Construction d'un nouveau système économique équitable</li>
                         <li>Audit éthique des pratiques RH et de recrutement</li>
                         <li>Formation aux dilemmes éthiques en management</li>
@@ -2248,7 +2259,7 @@
             <div class="footer-content">
                 <div class="footer-brand">
                     <h3>Alt&Act - Altérité & Action</h3>
-                    <p>Association de droit local alsacien-mosellan (loi du 19 avril 1908) dédiée à l'insertion professionnelle sans barrières. Nous développons des dispositifs d'accompagnement holistique respectueux de la personne et des aspirations profondes de la personne.</p>
+                    <p>Association de droit local alsacien-mosellan (loi du 19 avril 1908) dédiée à l'insertion professionnelle sans barrières. Nous développons des dispositifs d'accompagnement Multidimensionnel respectueux de la personne et des aspirations profondes de la personne.</p>
                     <p><strong>Siège :</strong> 23 rue de la Croix, 67100 Eckbolsheim</p>
                     <p><strong>Statut :</strong> Association loi 1908 inscrite au Tribunal d'Instance de Strasbourg</p>
                     <p><strong>Approche :</strong> Valeurs humanistes universelles, laïque et sans affiliation confessionnelle</p>
@@ -2313,7 +2324,7 @@
                     <div class="member-expertise">
                         <span class="expertise-tag">Orientation professionnelle</span>
                         <span class="expertise-tag">Valorisation des compétences</span>
-                        <span class="expertise-tag">Analyse holistique</span>
+                        <span class="expertise-tag">Analyse Multidimensionnel</span>
                         <span class="expertise-tag">Alignement valeurs/projet</span>
                     </div>
                 </div>
@@ -2762,7 +2773,7 @@
                 // Hero section
                 'hero-tag': '🏢 ONG Altérité & Action',
                 'hero-title': 'L\'insertion professionnelle <span style="color: #f59e0b;">sans barrières</span>',
-                'hero-subtitle': 'Nous développons des dispositifs d\'accompagnement holistique qui respectent la valeur intrinsèque de chaque individu et intègrent ses aspirations profondes, pour transformer l\'approche traditionnelle de l\'insertion professionnelle.',
+                'hero-subtitle': 'Nous développons des dispositifs d\'accompagnement Multidimensionnel qui respectent la valeur intrinsèque de chaque individu et intègrent ses aspirations profondes, pour transformer l\'approche traditionnelle de l\'insertion professionnelle.',
                 'hero-btn-primary': 'Découvrir notre approche',
                 'hero-btn-secondary': 'En savoir plus',
                 
@@ -2844,7 +2855,7 @@
                 
                 // Footer
                 'footer-title': 'Alt&Act - Altérité & Action',
-                'footer-text': 'Association de droit local alsacien-mosellan (loi du 19 avril 1908) dédiée à l\'insertion professionnelle sans barrières. Nous développons des dispositifs d\'accompagnement holistique respectueux de la personne et des aspirations profondes de la personne.',
+                'footer-text': 'Association de droit local alsacien-mosellan (loi du 19 avril 1908) dédiée à l\'insertion professionnelle sans barrières. Nous développons des dispositifs d\'accompagnement Multidimensionnel respectueux de la personne et des aspirations profondes de la personne.',
                 'footer-domains': 'Nos 5 Domaines',
                 'footer-governance': 'Gouvernance & Éthique',
                 'footer-resources': 'Ressources & Publications'
@@ -3294,5 +3305,17 @@
             }, 3000);
         }
     </script>
+    
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'fr',
+                includedLanguages: 'en,es,de,it,pt,ar,zh,ja,ru',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                autoDisplay: false
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
