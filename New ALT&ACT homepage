@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Alt&Act | L’insertion professionnelle sans barrières</title>
+
+  <meta name="description" content="Alt&Act est une ONG engagée pour une insertion professionnelle inclusive, innovante et fondée sur la dignité humaine." />
+  <meta name="theme-color" content="#0b2a55" />
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- CSS principal -->
+  <link rel="stylesheet" href="assets/css/main.css" />
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <span class="brand-mark">A</span>
+        <span class="brand-name">Alt&Act</span>
+      </div>
+
+      <nav class="nav">
+        <a href="index.html">Accueil</a>
+        <a href="association.html">Association</a>
+        <a href="projets.html">Projets</a>
+        <a class="nav-cta" href="re-actif-pro.html">RE’ACTIF PRO</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+
+        <div class="hero-content">
+          <p class="kicker">ONG • Insertion professionnelle • Innovation sociale</p>
+
+          <h1>
+            ALT&ACT<br />
+            <span>L’insertion professionnelle sans barrières</span>
+          </h1>
+
+          <p class="lead">
+            Alt&Act est une ONG engagée pour une insertion professionnelle inclusive,
+            fondée sur la dignité humaine, la coopération et l’innovation sociale.
+          </p>
+
+          <div class="hero-actions">
+            <a href="projets.html" class="btn btn-primary">Découvrir nos projets</a>
+            <a href="re-ac
